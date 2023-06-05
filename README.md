@@ -13,7 +13,7 @@ as linked object. separate CRUD operations are used for each linked entity.
 ## Usage
 
 ```
-yarn add @gravio-la/crud-jsonforms
+yarn add @graviola/crud-jsonforms
 ```
 
 
