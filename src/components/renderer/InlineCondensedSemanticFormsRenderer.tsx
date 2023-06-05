@@ -6,7 +6,7 @@ import merge from 'lodash/merge'
 import React, {useCallback, useEffect, useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
 
-import CRUDJsonForms from '../CRUDJsonForms'
+import {CRUDJsonForms} from '../CRUDJsonForms'
 import {Edit, EditOff} from "@mui/icons-material";
 import {JsonFormsExtendedConfig} from "../types";
 import {useInlineForm} from "../hooks/useInlineForm";

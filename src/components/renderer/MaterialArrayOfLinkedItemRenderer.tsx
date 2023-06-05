@@ -46,6 +46,7 @@ export const MaterialArrayOfLinkedItemRenderer = ({
         renderers={renderers}
         cells={cells}
         uischemas={uischemas}
+        translations={{}}
       />
     </Hidden>
   )

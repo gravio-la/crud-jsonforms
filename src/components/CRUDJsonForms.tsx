@@ -25,7 +25,7 @@ import TypeOfRenderer from './renderer/TypeOfRenderer'
 import {CRUDOpsType, JsonFormsExtendedConfig, ParserMiddleware, SparqlBuildOptions} from './types'
 import {useCRUD} from './hooks/useCRUD'
 
-export interface SemanticJsonFormsProps {
+export interface CRUDJsonFormsProps {
   entityIRI?: string | undefined
   data: any,
   setData: (data: any) => void
@@ -84,7 +84,7 @@ const renderers = [
   }
 ]
 
-const CRUDJsonForms: FunctionComponent<SemanticJsonFormsProps> =
+export const CRUDJsonForms: FunctionComponent<CRUDJsonFormsProps> =
     ({
        entityIRI,
        data,
@@ -189,4 +189,3 @@ const CRUDJsonForms: FunctionComponent<SemanticJsonFormsProps> =
       )
     }
 
-export default CRUDJsonForms

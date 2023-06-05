@@ -1,5 +1,5 @@
 import {Box} from "@mui/material";
-import CRUDJsonForms from "./CRUDJsonForms";
+import {CRUDJsonForms} from "./CRUDJsonForms";
 import {JSONSchema7} from "json-schema";
 import React, {useState} from "react";
 import {exampleData, exhibitionClassIRI} from "./example/fixture";
