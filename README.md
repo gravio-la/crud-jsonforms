@@ -1,22 +1,21 @@
-# Getting started
+# CRUD JSONForms
 
-There are two methods for getting started with this repo.
+This library provides a set of Renderers and a React Component that uses a
+JSONSchema and a semantic context in order to recursively render Forms, where entries can be
+linked together. A storage facade allows unopinioted create, read, and update operations to make
+it compatible with a wide range of storage backends.
 
-#### Familiar with Git?
+each sub definition within the `definitions` or `$defs` under certain conditions will be seen
+as linked object. separate CRUD operations are used for each linked entity.
 
-```
-git clone git@github.com:KaiHotz/react-rollup-boilerplate.git
-cd react-rollup-boilerplate
-yarn install
-```
 
-#### Not Familiar with Git?
 
-Click [here](https://github.com/KaiHotz/react-rollup-boilerplate/archive/master.zip) to download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+## Usage
 
 ```
-yarn install
+yarn add @gravio-la/crud-jsonforms
 ```
+
 
 
 ## Developing
@@ -73,7 +72,7 @@ or (if automatic fixing is possible)
 yarn lint:fix
 ```
 
-## Publishing your library to NPM
+## Publishing @gravio-la/crud-jsonforms library to NPM
 
 To release your library to NPM or your private Registry, make sure you have an active account at [NPM](https://www.npmjs.com/), your `.npmrc` file is correctly setup and the repository url in `package.json` file is set to your repository url, then:
 
@@ -81,13 +80,7 @@ To release your library to NPM or your private Registry, make sure you have an a
 yarn release
 ```
 
-## Storybook
 
-For custom layouts, styling and more information about Storybook, please refer to [Storybook](https://storybook.js.org/basics/writing-stories/) documentation.
-
-#### Deploy Storybook to GitHub Pages
-
-Make sure the repository url in `package.json` file is set to your repository url, then:
 
 ```
 yarn deploy

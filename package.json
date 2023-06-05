@@ -1,14 +1,14 @@
 {
-  "name": "react-rollup-boilerplate",
-  "version": "5.0.0",
-  "description": "Boilerplate for writing React Libraries bundled with Rollup.js to commonJs and ES6 Modules and Storybookt",
-  "author": "Kai Hotz",
+  "name": "@graviola/crud-jsonforms",
+  "version": "0.0.1",
+  "description": "A semantic enabled JSONForms library to create CRUD forms out of JSON Schema",
+  "author": "Sebastian Tilsch",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:KaiHotz/react-rollup-boilerplate.git"
+    "url": "git@github.com:gravio-la/crud-jsonforms.git"
   },
-  "homepage": "https://github.com/KaiHotz/react-rollup-boilerplate",
+  "homepage": "gravio-la.github.com/crud-jsonforms",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
