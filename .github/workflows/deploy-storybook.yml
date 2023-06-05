@@ -1,0 +1,42 @@
+name: Publish Storybook
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Trigger via 'Actions' on GitHub
+  workflow_dispatch:
+
+# cancel workflow when a newer version of the workflow is triggered on the same github ref
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
+jobs:
+  build-and-deploy-storybook:
+    name: Build and Deploy Storybook
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+
+      - run: yarn
+      - run: yarn deploy-storybook -- --ci --source-branch=main
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
