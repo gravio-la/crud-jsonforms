@@ -6,7 +6,7 @@ import merge from 'lodash/merge'
 import React, {useCallback, useEffect, useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
 
-import SemanticJsonForm from '../SemanticJsonForm'
+import CRUDJsonForms from '../CRUDJsonForms'
 import {Edit, EditOff} from "@mui/icons-material";
 import {JsonFormsExtendedConfig} from "../types";
 import {useInlineForm} from "../hooks/useInlineForm";
@@ -105,7 +105,7 @@ const InlineCondensedSemanticFormsRenderer = (props: ControlProps ) => {
           {subSchema && editMode && (
               <Grid container alignItems='baseline'>
                 <Grid item flex={'auto'}>
-                  <SemanticJsonForm
+                  <CRUDJsonForms
                       readonly={false}
                       data={formData}
                       entityIRI={data}

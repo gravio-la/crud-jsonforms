@@ -6,7 +6,7 @@ import merge from 'lodash/merge'
 import React, {useCallback, useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
 
-import SemanticJsonForm from '../SemanticJsonForm'
+import CRUDJsonForms from '../CRUDJsonForms'
 import {CRUDOpsType, JsonFormsExtendedConfig} from "../types";
 import MuiEditDialog from "../dialog/MuiEditDialog";
 import {useInlineForm} from "../hooks/useInlineForm";
@@ -98,7 +98,7 @@ const InlineSemanticFormsRendererModal = (props: ControlProps) => {
                         onSelectionChange={selection => handleChange_(selection?.value)}/>
                   }
                   onRemove={handleRemove}>
-                <SemanticJsonForm
+                <CRUDJsonForms
                     data={formData}
                     hideToolbar={true}
                     entityIRI={data}
