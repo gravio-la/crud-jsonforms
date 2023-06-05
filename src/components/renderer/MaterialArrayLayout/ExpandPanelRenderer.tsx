@@ -253,40 +253,42 @@ const ExpandPanelRenderer = React.memo(ExpandPanelRendererComponent)
  * @param dispatch the store's dispatch method
  * @returns {DispatchPropsOfArrayControl} dispatch props of an expand panel control
  */
-export const ctxDispatchToExpandPanelProps: (
+export const useCtxDispatchToExpandPanelProps: (
   dispatch: Dispatch<ReducerAction<any>>
-) => DispatchPropsOfExpandPanel = dispatch => ({
-  removeItems: useCallback((path: string, toDelete: number[]) => (event: any): void => {
-    event.stopPropagation()
-    dispatch(
-      update(path, array => {
-        toDelete
-          .sort()
-          .reverse()
-          .forEach(s => array.splice(s, 1))
-        return array
-      })
-    )
-  }, [dispatch]),
-  moveUp: useCallback((path: string, toMove: number) => (event: any): void => {
-    event.stopPropagation()
-    dispatch(
-      update(path, array => {
-        moveUp(array, toMove)
-        return array
-      })
-    )
-  }, [dispatch]),
-  moveDown: useCallback((path: string, toMove: number) => (event: any): void => {
-    event.stopPropagation()
-    dispatch(
-      update(path, array => {
-        moveDown(array, toMove)
-        return array
-      })
-    )
-  }, [dispatch])
-})
+) => DispatchPropsOfExpandPanel = dispatch => {
+  return ({
+    removeItems: useCallback((path: string, toDelete: number[]) => (event: any): void => {
+      event.stopPropagation()
+      dispatch(
+          update(path, array => {
+            toDelete
+                .sort()
+                .reverse()
+                .forEach(s => array.splice(s, 1))
+            return array
+          })
+      )
+    }, [dispatch]),
+    moveUp: useCallback((path: string, toMove: number) => (event: any): void => {
+      event.stopPropagation()
+      dispatch(
+          update(path, array => {
+            moveUp(array, toMove)
+            return array
+          })
+      )
+    }, [dispatch]),
+    moveDown: useCallback((path: string, toMove: number) => (event: any): void => {
+      event.stopPropagation()
+      dispatch(
+          update(path, array => {
+            moveDown(array, toMove)
+            return array
+          })
+      )
+    }, [dispatch])
+  });
+}
 
 export const getFirstPrimitivePropExceptJsonLD = (schema: any) => {
   if (schema.properties) {
@@ -314,7 +316,7 @@ export const withContextToExpandPanelProps = (
   ctx,
   props
 }: JsonFormsStateContext & ExpandPanelProps) => {
-  const dispatchProps = ctxDispatchToExpandPanelProps(ctx.dispatch)
+  const dispatchProps = useCtxDispatchToExpandPanelProps(ctx.dispatch)
   const { childLabelProp, schema, path, index, uischemas } = props
   const childPath = composePaths(path, `${index}`)
   const childData = Resolve.data(ctx.core.data, childPath)
