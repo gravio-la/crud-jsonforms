@@ -28,7 +28,7 @@
     "lint": "yarn check-types && yarn eslint && yarn stylelint",
     "lint:fix": "yarn eslint:fix && yarn stylelint:fix",
     "eslint": "eslint . --ext .js,.jsx,.tsx,.ts",
-    "eslint:fix": "eslint . --ext .js,.jsx,.tsx,.ts --fix",
+    "eslint:fix": "eslint . --ext .tsx,.ts --fix",
     "stylelint": "stylelint \"**/*.{css,scss,sass}\"",
     "stylelint:fix": "stylelint \"**/*.{css,scss,sass}\" --fix",
     "check-types": "tsc",
@@ -43,17 +43,21 @@
     "deploy": "gh-pages -d storybook-static"
   },
   "peerDependencies": {
+    "@emotion/react": "11.x",
+    "@emotion/styled": "11.x",
     "@jsonforms/core": "3.x",
     "@jsonforms/react": "3.x",
     "@mui/icons-material": "5.x",
     "@mui/material": "5.x",
     "@mui/styles": "5.x",
+    "@mui/x-date-pickers": "6.x",
     "react": "18.x",
     "react-dom": "18.x"
   },
   "dependencies": {
     "@rdfjs/namespace": "^2.0.0",
     "@rdfjs/types": "^1.1.0",
+    "@tanstack/react-query": "^4.29.12",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "uuid": "^9.0.0"
@@ -70,13 +74,16 @@
     "@babel/preset-react": "^7.22.3",
     "@babel/preset-typescript": "^7.21.5",
     "@babel/runtime": "^7.22.3",
-    "@jsonforms/core": "^3.0.0",
-    "@jsonforms/material-renderers": "^3.0.0",
-    "@jsonforms/react": "^3.0.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@jsonforms/core": "^3.1.0-beta.0",
+    "@jsonforms/material-renderers": "^3.1.0-beta.0",
+    "@jsonforms/react": "^3.1.0-beta.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.132",
     "@mui/material": "^5.13.3",
     "@mui/styles": "^5.13.2",
+    "@mui/x-date-pickers": "^6.6.0",
     "@popperjs/core": "^2.11.8",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.0",
@@ -166,11 +173,24 @@
     "typescript": "^5.0.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.84.1",
-    "yarn-audit-fix": "^9.3.10"
+    "yarn-audit-fix": "^9.3.10",
+    "zustand": "^4.3.8"
   },
   "resolutions": {
     "postcss": "^8.4.23",
     "loader-utils": "^1.4.1",
     "json5": "^1.0.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "no-unused-vars": [
+        "warn",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ]
+    }
   }
 }
