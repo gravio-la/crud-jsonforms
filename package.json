@@ -43,11 +43,20 @@
     "deploy": "gh-pages -d storybook-static"
   },
   "peerDependencies": {
+    "@jsonforms/core": "3.x",
+    "@jsonforms/react": "3.x",
+    "@mui/icons-material": "5.x",
+    "@mui/material": "5.x",
+    "@mui/styles": "5.x",
     "react": "18.x",
     "react-dom": "18.x"
   },
   "dependencies": {
-    "classnames": "^2.3.2"
+    "@rdfjs/namespace": "^2.0.0",
+    "@rdfjs/types": "^1.1.0",
+    "classnames": "^2.3.2",
+    "lodash": "^4.17.21",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
@@ -61,6 +70,13 @@
     "@babel/preset-react": "^7.22.3",
     "@babel/preset-typescript": "^7.21.5",
     "@babel/runtime": "^7.22.3",
+    "@jsonforms/core": "^3.0.0",
+    "@jsonforms/material-renderers": "^3.0.0",
+    "@jsonforms/react": "^3.0.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/lab": "^5.0.0-alpha.132",
+    "@mui/material": "^5.13.3",
+    "@mui/styles": "^5.13.2",
     "@popperjs/core": "^2.11.8",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.0",
@@ -87,8 +103,10 @@
     "@types/bluebird": "^3.5.38",
     "@types/jest": "^27.4.1",
     "@types/node": "^20.2.5",
+    "@types/rdfjs__namespace": "^2.0.3",
     "@types/react": "^18.2.7",
     "@types/react-dom": "^18.2.4",
+    "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
     "babel-jest": "^28.0.2",
