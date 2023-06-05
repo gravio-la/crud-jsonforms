@@ -46,6 +46,7 @@ const config = {
         'config',
         'dist',
         'node_modules/**',
+        'src/components/example',
         '*.cjs',
         '*.mjs',
         '**/__snapshots__/*',

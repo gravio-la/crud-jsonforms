@@ -25,7 +25,7 @@ import TypeOfRenderer from './renderer/TypeOfRenderer'
 import {CRUDOpsType, JsonFormsExtendedConfig, ParserMiddleware, SparqlBuildOptions} from './types'
 import {useCRUD} from './hooks/useCRUD'
 
-interface OwnProps {
+export interface SemanticJsonFormsProps {
   entityIRI?: string | undefined
   data: any,
   setData: (data: any) => void
@@ -42,7 +42,6 @@ interface OwnProps {
   onEntityChange?: (entityIRI: string | undefined) => void
 }
 
-export type SemanticJsonFormsProps = OwnProps;
 
 const renderers = [
   ...materialRenderers,
@@ -175,15 +174,14 @@ const CRUDJsonForms: FunctionComponent<SemanticJsonFormsProps> =
                 <JsonForms
                     readonly={!editMode}
                     data={transformedData}
-                    renderers={{
+                    renderers={[
                       ...renderers,
-                      ...(jsonFormsProps.renderers || {})
-                    }}
+                      ...(jsonFormsProps.renderers || [])
+                    ]}
                     cells={materialCells}
                     onChange={handleFormChange}
                     schema={schema as JsonSchema}
                     {...jsonFormsProps}
-
                 />
               </Grid>
             </Grid>
