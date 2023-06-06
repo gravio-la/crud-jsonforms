@@ -40,6 +40,7 @@ jobs:
           yarn install
           git config --global user.email 'github-actions@github.com'
           git config --global user.name 'github-actions'
+          git remote set-url origin https://${GH_TOKEN}@github.com/username/repository.git
           yarn predeploy
           yarn deploy
         env:
