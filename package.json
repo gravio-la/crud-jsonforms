@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git@github.com:gravio-la/crud-jsonforms.git"
   },
-  "homepage": "gravio-la.github.com/crud-jsonforms",
+  "homepage": "gravio-la.github.io/crud-jsonforms",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -29,7 +29,7 @@
     "lint": "yarn check-types && yarn eslint && yarn stylelint",
     "lint:fix": "yarn eslint:fix && yarn stylelint:fix",
     "eslint": "eslint . --ext .js,.jsx,.tsx,.ts",
-    "eslint:fix": "eslint . --ext .tsx,.ts --fix",
+    "eslint:fix": "eslint . --ext .js,.jsx,.tsx,.ts --fix",
     "stylelint": "stylelint \"**/*.{css,scss,sass}\"",
     "stylelint:fix": "stylelint \"**/*.{css,scss,sass}\" --fix",
     "check-types": "tsc",
