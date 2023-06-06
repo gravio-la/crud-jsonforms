@@ -36,7 +36,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
-      - run: yarn
-      - run: yarn predeploy && yarn deploy
+      - run: |
+          yarn install
+          git config --global user.email 'github-actions@github.com'
+          git config --global user.name 'github-actions'
+          yarn predeploy
+          yarn deploy
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
