@@ -14,6 +14,12 @@ export const recursivelyFindRefsAndAppendStub: (schema: JSONSchema7, rootSchema?
       $ref: `${schema.$ref}Stub`
     }
   }
+  if (isObject(schema.items)) {
+    return {
+      ...schema,
+      items: recursivelyFindRefsAndAppendStub(schema.items as JSONSchema7, rootSchema)
+    }
+  }
   if (schema.properties) {
     return {
       ...schema,
@@ -50,7 +56,7 @@ export const prepareStubbedSchema = (schema: JSONSchema7, genJSONLDSemanticPrope
     ...schema,
     properties: {
       ...schema.properties,
-      ...(genJSONLDSemanticProperties? genJSONLDSemanticProperties(name) : {})
+      ...(genJSONLDSemanticProperties ? genJSONLDSemanticProperties(name) : {})
     }
   }) as JSONSchema7
 
