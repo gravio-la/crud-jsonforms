@@ -1,6 +1,6 @@
 {
   "name": "@graviola/crud-jsonforms",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "A semantic enabled JSONForms library to create CRUD forms out of JSON Schema",
   "author": "Sebastian Tilsch",
